@@ -21,7 +21,8 @@ gem 'puma', '~> 3.11'
 gem 'hirb'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+# JWT
+gem 'jwt', '~> 2.0.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

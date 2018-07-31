@@ -1,19 +1,19 @@
 class V1::ContractorsController < ApplicationController
 
   def index
-    @contratista = Contratista.all()
-    render json: @contratista, status: :ok
+    @contractor = Contractor.all()
+    render json: @contractor, status: :ok
   end
 
   def create
-    @contratisa = Contratista.new(contratista_params)
-    @contratisa.save
-    render json: @contratisa, status: :ok
+    @contractor = Contractor.new(contractor_params)
+    @contractor.save
+    render json: @contractor, status: :ok
   end
 
   def destroy
-    @contratista = Contratista.where(id: params[:id]).first 
-    if @contratisa.destroy
+    @contractor = Contractor.where(id: params[:id]).first 
+    if @contractor.destroy
       head(:ok)
     else
       head(:unprocessable_entity)
@@ -21,10 +21,10 @@ class V1::ContractorsController < ApplicationController
   end
 
   def update
-    if @contratisa.update(contratista_params)
-      render json: @contratisa, status: :ok
+    if @contractor.update(contractor_params)
+      render json: @contractor, status: :ok
     else
-      render json: { message: @contratista.errors.map { |x, mess| "#{x} #{mess}".capitalize } }, status: :unprocessable_entity
+      render json: { message: @contractor.errors.map { |x, mess| "#{x} #{mess}".capitalize } }, status: :unprocessable_entity
     end
   end
 

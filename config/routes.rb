@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :contractors
     resources :accounts
     resources :statuses
+    post  'login', to: "sessions#login"
   end
 end
