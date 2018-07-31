@@ -12,7 +12,7 @@ class V1::ContractorsController < ApplicationController
   end
 
   def destroy
-    @contratista = Contratista.where(identificacion: params[:identificacion]).first 
+    @contratista = Contratista.where(id: params[:id]).first 
     if @contratisa.destroy
       head(:ok)
     else
