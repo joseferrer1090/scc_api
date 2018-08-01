@@ -23,11 +23,13 @@ ActiveRecord::Schema.define(version: 2018_07_31_151803) do
   end
 
   create_table "contractors", force: :cascade do |t|
+    t.string "uuid"
+    t.string "access_token"
     t.integer "identification"
     t.string "name"
     t.string "last_name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.string "password_confirmation"
   end
 

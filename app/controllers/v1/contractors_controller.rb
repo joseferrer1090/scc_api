@@ -1,5 +1,6 @@
 class V1::ContractorsController < ApplicationController
-
+  before_action :set_user, only: [:show, :update, :destroy]
+  
   def index
     @contractor = Contractor.all()
     render json: @contractor, status: :ok
@@ -30,14 +31,20 @@ class V1::ContractorsController < ApplicationController
 
   private 
 
-  def contratista_params
+  def contractor_params
     params.permit(
-      :identificacion,
-      :nombre,
-      :apellido,
-      :correo,
-      :password,
-      :repassword
+      :identification,
+      :name,
+      :last_name,
+      :email,
+      :password_digest,
+      :password_confirmation,
+      :access_token
     )
   end
+
+  def set_user
+    @contractor = Contractor.find_by(access_token:request.headers['token'])
+  end
+
 end
